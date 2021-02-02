@@ -1,0 +1,82 @@
+<div class="p-10">
+
+  <h3 class="text-xl font-bold">Types of Cookies</h3>
+  <div><%= link_to "Back", home_path, class: "underline text-blue-600" %></div>
+
+</div><%# p-10 %>
+
+<div class="p-10">
+  <div class="grid gap-4 grid-cols-2">
+    <div>
+      <h3 class="text-lg font-bold">Save last name to cookies</h3>
+
+      <%= form_with url: types_of_cookies_save_path, method: :post do |form| %>
+
+        <div class="mt-4">
+          <label class="font-bold">Last name</label>
+          <div class="mt-2">
+            <%= form.text_field :last_name, class: 'border-2 py-2 px-3 text-grey-darkest' %>
+          </div>
+        </div>
+
+        <%= form.submit "Save", class: "mt-4 p-3 py-2 rounded" %>
+
+      <% end %>
+
+    </div>
+
+    <div>
+      <h3>Show</h3>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies[:last_name]</label>
+        <div><%= cookies[:last_name] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies[:last_name_expiring_in_1_hour]</label>
+        <div><%= cookies[:last_name_expiring_in_1_hour] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies[:last_name_expiring_at_specific_time]</label>
+        <div><%= cookies[:last_name_expiring_at_specific_time] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies.signed[:last_name_signed]</label>
+        <div><%= cookies.signed[:last_name_signed] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies.encrypted[:last_name_encrypted]</label>
+        <div><%= cookies.encrypted[:last_name_encrypted] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies.permanent[:last_name_permanent]</label>
+        <div><%= cookies.permanent[:last_name_permanent] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies.signed.permanent[:last_name_signed_permanent]</label>
+        <div><%= cookies.signed.permanent[:last_name_signed_permanent] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies.signed.encrypted[:last_name_signed_encrypted]</label>
+        <div><%= cookies.signed.encrypted[:last_name_signed_encrypted] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies.permanent.encrypted[:last_name_permanent_encrypted]</label>
+        <div><%= cookies.permanent.encrypted[:last_name_permanent_encrypted] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies.signed.permanent.encrypted[:last_name_signed_permanent_encrypted]</label>
+        <div><%= cookies.signed.permanent.encrypted[:last_name_signed_permanent_encrypted] || "-" %></div>
+      </div>
+    </div>
+  </div>
+</div>

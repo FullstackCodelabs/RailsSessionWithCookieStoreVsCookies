@@ -1,0 +1,42 @@
+<div class="p-10">
+
+  <h3 class="text-xl font-bold">Session (CookieStore) vs Cookies</h3>
+  <div><%= link_to "Back", home_path, class: "underline text-blue-600" %></div>
+
+</div><%# p-10 %>
+
+<div class="p-10">
+  <div class="grid gap-4 grid-cols-2">
+
+    <div>
+      <h3 class="text-lg font-bold">Save first name to session and cookies</h3>
+
+      <%= form_with url: session_vs_cookies_save_path, method: :post do |form| %>
+
+        <div class="mt-4">
+          <div class="mt-2">
+            <%= form.text_field :first_name, class: 'border-2 py-2 px-3 text-grey-darkest' %>
+          </div>
+        </div>
+
+        <%= form.submit "Save", class: "mt-4 p-3 py-2 rounded" %>
+
+      <% end %>
+    </div>
+
+    <div>
+      <h3 class="text-lg font-bold">Show stored values</h3>
+
+      <div class="mt-4">
+        <label class="font-bold">session[:first_name]</label>
+        <div><%= session[:first_name] || "-" %></div>
+      </div>
+
+      <div class="mt-4">
+        <label class="font-bold">cookies[:first_name]</label>
+        <div><%= cookies[:first_name] || "-" %></div>
+      </div>
+    </div>
+
+  </div><%# grid gap-4 %>
+</div><%# p-10 %>
